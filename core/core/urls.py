@@ -28,4 +28,8 @@ urlpatterns = [
     path('newprod/', NewProd, name="NewProduct"),
     path('upprod/<int:id>/', UpProd, name="UpProduct"),
     path('delprod/<int:id>/', DelProd, name="DelProduct"),
+    path('liscli/', LisCli, name="LisClient"),
+    path('newcli/', NewCli, name="NewClient"),
+    path('upcli/<int:id>/', UpCli, name="UpClient"),
+    path('delcli/<int:id>/', DelCli, name="DelClient"),
 ]

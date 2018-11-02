@@ -56,3 +56,30 @@ def DelProd(request, id):
         product.delete()
         return redirect('LisProduct')
     return render(request, 'newprod.html', {'product':product})
+
+#Clientes
+def LisCli(request):
+    clients = RegCli.objects.all()
+    return render(request, 'liscli.html', {'clients': clients})
+
+def NewCli(request):
+    form = ClientForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('LisClient')
+    return render(request, 'newcli.html', {'form': form})
+
+def UpCli(request, id):
+    clients = get_object_or_404(RegCli, pk=id)
+    form = ClientForm(request.POST or None, instance=clients)
+    if form.is_valid():
+        form.save()
+        return redirect('LisClient')
+    return render(request, 'newcli.html', {'form':form})
+
+def DelCli(request, id):
+    clients = get_object_or_404(RegCli, pk=id)
+    if request.method == 'POST':
+        clients.delete()
+        return redirect('LisClient')
+    return render(request, 'index.html', {'clients':clients})

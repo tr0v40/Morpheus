@@ -12,3 +12,12 @@ class ProdForm(ModelForm):
     class Meta:
         model = Prod
         fields = ['product', 'ncm']
+
+#Clientes
+
+class ClientForm(ModelForm):
+    class Meta:
+        model = RegCli
+        fields = ['com_name', 'adress', 'state', 'country', 'contact']
+        model = Phones
+        fields = ['ddi', 'ddd', 'tel']
