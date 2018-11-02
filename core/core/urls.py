@@ -24,4 +24,8 @@ urlpatterns = [
     path('newtype/', Newtype, name="Newtype"),
     path('uptype/<int:id>/', Uptype, name="Uptype"),
     path('deltype/<int:id>/', Deltype, name="Deltype"),
+    path('lisprod/', LisProd, name="LisProduct"),
+    path('newprod/', NewProd, name="NewProduct"),
+    path('upprod/<int:id>/', UpProd, name="UpProduct"),
+    path('delprod/<int:id>/', DelProd, name="DelProduct"),
 ]

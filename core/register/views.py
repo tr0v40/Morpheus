@@ -29,3 +29,30 @@ def Deltype(request, id):
         types.delete()
         return redirect('Listype')
     return render(request, 'newtype.html', {'types':types})
+
+#Produtos
+def LisProd(request):
+    prods = Prod.objects.all()
+    return render(request, 'lisprod.html', {'prods': prods})
+
+def NewProd(request):
+    form = ProdForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('LisProduct')
+    return render(request, 'newprod.html', {'form': form})
+
+def UpProd(request, id):
+    prods = get_object_or_404(Prod, pk=id)
+    form = ProdForm(request.POST or None, instance=prods)
+    if form.is_valid():
+        form.save()
+        return redirect('LisProduct')
+    return render(request, 'newprod.html', {'form':form})
+
+def DelProd(request, id):
+    product = get_object_or_404(Prod, pk=id)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('LisProduct')
+    return render(request, 'newprod.html', {'product':product})

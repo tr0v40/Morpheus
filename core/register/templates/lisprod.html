@@ -1,0 +1,27 @@
+<div class="container">
+    <a href="{% url 'NewProduct' %}"> <button><i class="fa fa-fw fa-file"></i></button> </a> </br>
+    <h2>Lista de Produtos</h2>
+    
+    <table class="table table-striped"> 
+        <thead>
+            <tr>
+              <th>Produto</th>
+              <th>NCM</th>
+              <th>Alterar</th>
+              <th>Excluir</th>
+            </tr>
+          </thead> 
+          <tbody>    
+    {% for prod in prods %}
+
+        <tr>
+                <td>{{ prod.product }}</td>
+                <td>{{ prod.ncm }}</td>
+                <td><a href="{% url 'UpProduct' prod.id %}"><button><i class="fa fa-fw fa-pencil"></i></button></a></td>
+                <td><a href="{% url 'DelProduct' prod.id %}"> <button type="submit"><i class="fa fa-fw fa-times"></i></button> </a></td>
+        </tr>
+    {% endfor %}
+</tbody>
+
+</table>
+</div>
