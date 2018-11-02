@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from register.views import *
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('listype/', Listype, name="Listype"),
+    path('newtype/', Newtype, name="Newtype"),
+    path('uptype/<int:id>/', Uptype, name="Uptype"),
+    path('deltype/<int:id>/', Deltype, name="Deltype"),
 ]
