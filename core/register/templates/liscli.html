@@ -1,35 +1,32 @@
 <div class="container">
-    <a href="{% url 'NewClient' %}"> <button><i class="fa fa-fw fa-file"></i></button> </a> </br>
-    <h2>Lista de Clientes</h2>
-    
-    <table class="table table-striped"> 
-        <thead>
+        <a href="{% url 'NewClient' %}"> <button><i class="fa fa-fw fa-file"></i></button> </a> </br>
+        <h2>Lista de Clientes</h2>
+        
+        <table class="table table-striped"> 
+            <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>Endereço</th>
+                  <th>Estado</th>
+                  <th>País</th>
+                  <th>Contato</th>
+                  <th>Alterar</th>
+                  <th>Excluir</th>
+                </tr>
+              </thead> 
+              <tbody>    
+        {% for client in clients %}
+
             <tr>
-              <th>Empresa</th>
-              <th>Endereço</th>
-              <th>Estado</th>
-              <th>País</th>
-              <th>Telefone</th>
-              <th>Contato</th>
-              <th>Alterar</th>
-              <th>Excluir</th>
+                    <td>{{ client.com_name }}</td>
+                    <td>{{ client.adress }}</td>
+                    <td>{{ client.state }}</td>
+                    <td>{{ client.country }}</td>
+                    <td>{{ client.contact }}</td>
+                    <td><a href="{% url 'UpClient' client.id %}"><button><i class="fa fa-fw fa-pencil"></i></button></a></td>
             </tr>
-          </thead> 
-          <tbody>    
-    {% for client in clients %}
-
-        <tr>
-                <td>{{ client.com_name }}</td>
-                <td>{{ client.adress }}</td>
-                <td>{{ client.state }}</td>
-                <td>{{ client.country }}</td>
-                <td>{{ client.phone }}</td>
-                <td>{{ client.contact }}</td>
-                <td><a href="{% url 'UpClient' client.id %}"><button><i class="fa fa-fw fa-pencil"></i></button></a></td>
-                <td><a href="{% url 'DelClient' client.id %}"> <button type="submit"><i class="fa fa-fw fa-times"></i></button> </a></td>
-        </tr>
-    {% endfor %}
-</tbody>
-
-</table>
+        {% endfor %}
+    </tbody>
+    
+    </table>
 </div>

@@ -82,4 +82,32 @@ def DelCli(request, id):
     if request.method == 'POST':
         clients.delete()
         return redirect('LisClient')
-    return render(request, 'index.html', {'clients':clients})
+    return render(request, 'liscli.html', {'clients':clients})
+'''
+#Telefones
+def LisPhone(request):
+    phone = Phones.objects.all()
+    return render(request, 'liscli.html', {'phone': phone})
+
+def NewPhone(request):
+    form = PhoneForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('LisPhone')
+    return render(request, 'newcli.html', {'form2': form})
+
+def UpPhone(request, id):
+    phone = get_object_or_404(Phones, pk=id)
+    form = PhoneForm(request.POST or None, instance=phone)
+    if form.is_valid():
+        form.save()
+        return redirect('LisPhone')
+    return render(request, 'newcli.html', {'form2':form})
+
+def DelPhone(request, id):
+    phone = get_object_or_404(Phones, pk=id)
+    if request.method == 'POST':
+        phone.delete()
+        return redirect('LisPhone')
+    return render(request, 'index.html', {'phone':phone})
+    '''

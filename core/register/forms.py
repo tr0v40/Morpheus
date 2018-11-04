@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, ModelChoiceField
 from .models import *
 
 #Embalagens
@@ -19,5 +19,4 @@ class ClientForm(ModelForm):
     class Meta:
         model = RegCli
         fields = ['com_name', 'adress', 'state', 'country', 'contact']
-        model = Phones
-        fields = ['ddi', 'ddd', 'tel']
+
