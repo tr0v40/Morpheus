@@ -1,8 +1,12 @@
-<div class="container">
-    <a href="{% url 'Newtype' %}"> <button><i class="fa fa-fw fa-file"></i></button> </a> </br>
+{% extends "index.html" %} 
+{% load static %}
+   
+        {% block content %}
+<div class=" black-text">
+    <a href="{% url 'Newtype' %}"class="black-text"><i class="material-icons black-text">insert_drive_file</i></a>
     <h2>Lista de Tipos de Pacotes</h2>
     
-    <table class="table table-striped"> 
+    <table class="bordered centered"> 
         <thead>
             <tr>
               <th>Pacote</th>
@@ -17,11 +21,12 @@
         <tr>
                 <td>{{ type.package }}</td>
                 <td>{{ type.weight }}</td>
-                <td><a href="{% url 'Uptype' type.id %}"><button><i class="fa fa-fw fa-pencil"></i></button></a></td>
-                <td><a href="{% url 'Deltype' type.id %}"> <button type="submit"><i class="fa fa-fw fa-times"></i></button> </a></td>
+                <td><a href="{% url 'Uptype' type.id %}"><i class="material-icons black-text">create</i></a></td>
+                <td><a href="{% url 'Deltype' type.id %}"> <i class="material-icons red-text">delete_forever</i></a></td>
         </tr>
     {% endfor %}
 </tbody>
 
 </table>
 </div>
+{% endblock %}

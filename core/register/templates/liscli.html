@@ -1,8 +1,12 @@
-<div class="container">
-        <a href="{% url 'NewClient' %}"> <button><i class="fa fa-fw fa-file"></i></button> </a> </br>
-        <h2>Lista de Clientes</h2>
+{% extends "index.html" %} 
+{% load static %}
+{% block content %}
+<div class="black-text">
         
-        <table class="table table-striped"> 
+        <h2>Lista de Clientes</h2>
+        <a href="{% url 'NewClient' %}" class="black-text"><i class="material-icons black-text">insert_drive_file</i> </a>
+        <h6>
+        <table class="bordered centered "> 
             <thead>
                 <tr>
                   <th>Empresa</th>
@@ -11,7 +15,7 @@
                   <th>País</th>
                   <th>Contato</th>
                   <th>Alterar</th>
-                  <th>Excluir</th>
+                  
                 </tr>
               </thead> 
               <tbody>    
@@ -23,10 +27,12 @@
                     <td>{{ client.state }}</td>
                     <td>{{ client.country }}</td>
                     <td>{{ client.contact }}</td>
-                    <td><a href="{% url 'UpClient' client.id %}"><button><i class="fa fa-fw fa-pencil"></i></button></a></td>
+                    <td><a href="{% url 'UpClient' client.id %}"><i class="material-icons black-text">create</i></a></td>
             </tr>
         {% endfor %}
     </tbody>
     
     </table>
+</h6>
 </div>
+{% endblock %}

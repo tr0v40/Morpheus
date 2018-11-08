@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic.base import TemplateView
 from .forms import *
 from .models import *
 

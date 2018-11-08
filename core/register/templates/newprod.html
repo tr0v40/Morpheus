@@ -1,7 +1,12 @@
-<div class="container"> 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Cadastrar</button>
-    </form>
-</div>
+{% extends "index.html" %} 
+{% load static %}
+   
+     {% block content %}
+        <div class=" black-text"> 
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+{% endblock %}

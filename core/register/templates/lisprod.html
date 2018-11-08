@@ -1,8 +1,13 @@
-<div class="container">
-    <a href="{% url 'NewProduct' %}"> <button><i class="fa fa-fw fa-file"></i></button> </a> </br>
+{% extends "index.html" %} 
+{% load static %}
+   
+        {% block content %}
+
+<div class=" black-text">
+    <a href="{% url 'NewProduct' %}"class="black-text"><i class="material-icons black-text">insert_drive_file</i> </a>
     <h2>Lista de Produtos</h2>
     
-    <table class="table table-striped"> 
+    <table class="bordered centered"> 
         <thead>
             <tr>
               <th>Produto</th>
@@ -17,11 +22,12 @@
         <tr>
                 <td>{{ prod.product }}</td>
                 <td>{{ prod.ncm }}</td>
-                <td><a href="{% url 'UpProduct' prod.id %}"><button><i class="fa fa-fw fa-pencil"></i></button></a></td>
-                <td><a href="{% url 'DelProduct' prod.id %}"> <button type="submit"><i class="fa fa-fw fa-times"></i></button> </a></td>
+                <td><a href="{% url 'UpProduct' prod.id %}"><i class="material-icons black-text">create</i></a></td>
+                <td><a href="{% url 'DelProduct' prod.id %}"> <button type="submit"><i class="material-icons red-text">delete_forever</i> </a></td>
         </tr>
     {% endfor %}
 </tbody>
 
 </table>
 </div>
+{% endblock %}
