@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'morpheus.gq',
-    'www.morpheus.gq'
+    'www.morpheus.gq',
     '40.124.26.73',
     '10.0.0.4',
     '127.0.0.1',
