@@ -26,6 +26,8 @@ SECRET_KEY = '(*cs$3$7!(yw$7%v(25@x(aybf#s60e1i!b0vcjfmyp!1nik8$'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'morpheus.gq',
+    'www.morpheus.gq'
     '40.124.26.73',
     '10.0.0.4',
     '127.0.0.1',
